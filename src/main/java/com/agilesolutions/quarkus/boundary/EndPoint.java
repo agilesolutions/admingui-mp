@@ -27,12 +27,23 @@ public class EndPoint {
 
 	@APIResponses(value = {
 			@APIResponse(responseCode = "404", description = "We could not find anything", content = @Content(mediaType = "text/plain")),
-			@APIResponse(responseCode = "200", description = "We have a list of books", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Properties.class))) })
+			@APIResponse(responseCode = "200", description = "Jenkins Pipeline executed successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Properties.class))) })
 	@Operation(summary = "Start a jenkins pipeline for a specific application and domain", description = "This method runs a deployment pipeline")
 	@Timed(name = "get-all-books", description = "Monitor the time it takes to spawn a Jenkins pipeline Method takes", unit = MetricUnits.MILLISECONDS, absolute = true)
 	@Metered(name = "create-books", unit = MetricUnits.MILLISECONDS, description = "Monitor the rate events occured", absolute = true)
 	@POST
 	public void startPipeline(Profile profile) {
 		jenkinsService.startPipeline(profile);
+	}
+
+	@APIResponses(value = {
+			@APIResponse(responseCode = "404", description = "We could not find anything", content = @Content(mediaType = "text/plain")),
+			@APIResponse(responseCode = "200", description = "We have a list of books", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Properties.class))) })
+	@Operation(summary = "Create a jenkins pipeline for a specific application and domain", description = "This method creates a new deployment pipeline on Jenkins")
+	@Timed(name = "get-all-books", description = "Monitor the time it takes to create a Jenkins pipeline Method takes", unit = MetricUnits.MILLISECONDS, absolute = true)
+	@Metered(name = "create-books", unit = MetricUnits.MILLISECONDS, description = "Monitor the rate events occured", absolute = true)
+	@POST
+	public void createPipeline(Profile profile) {
+		jenkinsService.createPipeline(profile);
 	}
 }
