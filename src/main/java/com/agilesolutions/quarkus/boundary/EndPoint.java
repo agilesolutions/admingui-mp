@@ -3,8 +3,11 @@ package com.agilesolutions.quarkus.boundary;
 import java.util.Properties;
 
 import javax.inject.Inject;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Metered;
@@ -14,16 +17,21 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
-import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import com.agilesolutions.quarkus.model.Profile;
 
 @Path("/jenkins")
-@Tag(name = "Jenkins Pipeline Execution", description = "Create and Execute DevOps Jenkins pipelines")
+//@Tag(name = "Jenkins Pipeline Execution", description = "Create and Execute DevOps Jenkins pipelines")
 public class EndPoint {
 
 	@Inject
 	JenkinsService jenkinsService;
+
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String hello() {
+		return "hello";
+	}
 
 	@APIResponses(value = {
 			@APIResponse(responseCode = "404", description = "We could not find anything", content = @Content(mediaType = "text/plain")),

@@ -51,16 +51,16 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
+		<!--  dependency>
 			<groupId>org.microprofile-ext.openapi-ext</groupId>
 			<artifactId>swagger-ui</artifactId>
 			<version>${swagger.version}</version>
-		</dependency>
+		</dependency-->
 
-		<dependency>
+		<!--  dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-arc</artifactId>
-		</dependency>
+		</dependency-->
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-junit5</artifactId>

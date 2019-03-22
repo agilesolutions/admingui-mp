@@ -21,6 +21,7 @@ import org.eclipse.microprofile.openapi.annotations.servers.Server;
             @Server(url = "/jenkins",description = "localhost")
         }
 )
+
 public class ApplicationConfig extends Application {
 
 }

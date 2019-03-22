@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import MUIDataTable from "mui-datatables";
 import MessageDialog, { openDialog } from '../dialogs/MessageDialog';
-import ConfirmDialog, { askConfirmation } from '../dialogs/ConfirmDialog';
 import Store from '../data/Store';
 
 
